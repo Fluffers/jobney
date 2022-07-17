@@ -1,0 +1,34 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ci_cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        with:
+          node-version: '16'
+
+      - uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: true
+
+      - name: Build
+        run: pnpm build
+
+      - name: Lint code
+        run: pnpm ci:lint
+
+      - name: Typecheck
+        run: pnpm ci:typecheck
