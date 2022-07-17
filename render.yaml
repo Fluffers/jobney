@@ -1,0 +1,13 @@
+previewsEnabled: true
+services:
+  - type: web
+    name: jobney
+    env: node
+    region: frankfurt
+    plan: free
+    previewPlan: free
+    branch: main
+    healthCheckPath: /_health
+    buildCommand: npm i -g pnpm && pnpm i --frozen-lockfile && pnpm build
+    startCommand: pnpm start
+    autoDeploy: false
