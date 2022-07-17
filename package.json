@@ -1,27 +1,66 @@
 {
-  "private": true,
-  "sideEffects": false,
-  "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
-    "start": "remix-serve build"
-  },
-  "dependencies": {
-    "@remix-run/node": "^1.6.5",
-    "@remix-run/react": "^1.6.5",
-    "@remix-run/serve": "^1.6.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "@remix-run/dev": "^1.6.5",
-    "@remix-run/eslint-config": "^1.6.5",
-    "@types/react": "^17.0.45",
-    "@types/react-dom": "^17.0.17",
-    "eslint": "^8.15.0",
-    "typescript": "^4.7.4"
-  },
-  "engines": {
-    "node": ">=14"
-  }
+	"private": true,
+	"sideEffects": false,
+	"scripts": {
+		"build": "remix build",
+		"ci:lint": "eslint --ignore-path .gitignore --max-warnings 0 --ext .ts,.tsx,.js,.jsx .",
+		"ci:typecheck": "tsc",
+		"cz": "cz",
+		"dev": "remix dev",
+		"format": "prettier --ignore-path .gitignore -w \"./**/*.{js,jsx,ts,tsx,html,css,json}\"",
+		"husky": "husky install",
+		"lint": "eslint --ignore-path .gitignore --fix --ext .ts,.tsx,.js,.jsx .",
+		"start": "remix-serve build"
+	},
+	"lint-staged": {
+		"*.{md,json,html}": [
+			"prettier --write"
+		],
+		"*.{ts?(x),js}": [
+			"eslint --fix --max-warnings 0"
+		],
+		"package.json": "sort-package-json"
+	},
+	"config": {
+		"commitizen": {
+			"path": "@commitlint/cz-commitlint"
+		}
+	},
+	"dependencies": {
+		"@remix-run/node": "^1.6.5",
+		"@remix-run/react": "^1.6.5",
+		"@remix-run/serve": "^1.6.5",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.0.3",
+		"@commitlint/config-conventional": "^17.0.3",
+		"@commitlint/cz-commitlint": "^17.0.3",
+		"@remix-run/dev": "^1.6.5",
+		"@tsconfig/strictest": "^1.0.1",
+		"@types/react": "^18.0.15",
+		"@types/react-dom": "^18.0.6",
+		"@typescript-eslint/eslint-plugin": "^5.30.6",
+		"@typescript-eslint/parser": "^5.30.6",
+		"commitizen": "^4.2.5",
+		"eslint": "^8.20.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-import-resolver-typescript": "^3.2.7",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsx-a11y": "^6.6.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.30.1",
+		"eslint-plugin-unicorn": "^43.0.1",
+		"husky": "^8.0.1",
+		"inquirer": "8.2.4",
+		"lint-staged": "^13.0.3",
+		"prettier": "^2.7.1",
+		"sort-package-json": "^1.57.0",
+		"typescript": "^4.7.4"
+	},
+	"engines": {
+		"node": ">=16",
+		"pnpm": ">=7"
+	}
 }

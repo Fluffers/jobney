@@ -1,6 +1,10 @@
-node_modules
-
+# Build artifacts
 /.cache
 /build
 /public/build
+
+# Env variables
 .env
+
+# Misc
+node_modules
