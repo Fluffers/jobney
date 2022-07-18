@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-undef, unicorn/prefer-module
+/* eslint-disable unicorn/prefer-module, no-undef */
 module.exports = {
 	printWidth: 120,
 	tabWidth: 2,
@@ -9,4 +9,5 @@ module.exports = {
 	bracketSpacing: true,
 	arrowParens: 'avoid',
 	singleAttributePerLine: true,
+	plugins: [require('prettier-plugin-tailwindcss')],
 };

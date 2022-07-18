@@ -16,7 +16,7 @@ const Screen = () => {
 	return (
 		<html
 			lang="en"
-			className="bg-gray-200"
+			className="bg-gray-200 p-4"
 		>
 			<head>
 				<Meta />
