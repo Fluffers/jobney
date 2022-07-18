@@ -3,6 +3,8 @@ name: CI/CD
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   ci_cd:
@@ -32,3 +34,10 @@ jobs:
 
       - name: Typecheck
         run: pnpm ci:typecheck
+
+      - name: Trigger render deploy via webhook
+        uses: zzzze/webhook-trigger@d83e16935dfe5c1362f730e4326a59519d77ae5b
+        with:
+          data: '{"event_type":"build"}'
+          webhook_url: ${{ secrets.RENDER_WEBHOOK_URL }}
+        if: github.event_name != 'pull_request'

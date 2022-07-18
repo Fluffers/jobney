@@ -2,6 +2,7 @@
 /.cache
 /build
 /public/build
+/app/styles/app.output.css
 
 # Env variables
 .env
