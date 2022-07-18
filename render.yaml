@@ -5,7 +5,6 @@ services:
     env: node
     region: frankfurt
     plan: free
-    branch: main
     healthCheckPath: /_health
     buildCommand: npm i -g pnpm && pnpm i --frozen-lockfile && pnpm build
     startCommand: pnpm start
