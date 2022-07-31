@@ -32,13 +32,13 @@ interface SendEmailResult {
 
 export const sendEmail = async ({ html, receiver, plainTextVersion, senderName, subject }: SendEmailOptions) => {
 	try {
-		const { accepted }: SendEmailResult = await transporter.sendMail({
+		const { accepted } = (await transporter.sendMail({
 			from: `"${senderName}" <${env.SMTP_USER}>`,
 			to: receiver,
 			subject,
 			text: plainTextVersion,
 			html,
-		});
+		})) as SendEmailResult;
 
 		if (!accepted.includes(receiver)) throw new Error('Unable to send email');
 	} catch {

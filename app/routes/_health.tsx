@@ -1,7 +1,7 @@
 import type { LoaderArgs } from '@remix-run/node';
 
 const fetchSelf = async (request: Request) => {
-	const host = request.headers.get('host');
+	const host = request.headers.get('host') ?? '';
 	const selfURL = new URL('/', `https://${host}`);
 	const response = await fetch(selfURL.toString(), { method: 'HEAD' });
 
