@@ -5,6 +5,7 @@ import { RemixI18Next } from 'remix-i18next';
 
 import { i18nConfig } from '~/utils/i18n';
 
+// TODO: add handling language from sesssion/cookie only
 export const i18n = new RemixI18Next({
 	detection: {
 		supportedLanguages: i18nConfig.supportedLngs,
