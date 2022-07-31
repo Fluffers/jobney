@@ -7,7 +7,7 @@ declare global {
 	var __globalModules: Map<string, unknown>;
 }
 
-global.__globalModules = new Map();
+global.__globalModules ??= new Map();
 
 export const createStableModule = <Module>(key: string, createModule: () => Module): Module => {
 	if (env.NODE_ENV === 'production') {
