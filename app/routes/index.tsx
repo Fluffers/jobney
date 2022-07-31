@@ -1,5 +1,6 @@
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
+import { useTranslation } from 'react-i18next';
 
 export const loader = () => {
 	return json({
@@ -8,9 +9,10 @@ export const loader = () => {
 };
 
 const Screen = () => {
-	const data = useLoaderData<typeof loader>();
+	const { name } = useLoaderData<typeof loader>();
+	const { t } = useTranslation();
 
-	return <h1>Hello {data.name}!</h1>;
+	return <h1>{t('greeting', { name })}</h1>;
 };
 
 export default Screen;

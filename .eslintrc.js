@@ -70,6 +70,7 @@ module.exports = {
 		'unicorn/no-unsafe-regex': 'error',
 		'unicorn/prefer-query-selector': 'off',
 		'unicorn/prefer-type-error': 'off',
+		'unicorn/prefer-top-level-await': 'off',
 	},
 	settings: {
 		'import/parsers': {
@@ -90,6 +91,9 @@ module.exports = {
 			files: ['*.ts', '*.tsx'],
 			parserOptions: {
 				project: ['./tsconfig.json'],
+			},
+			rules: {
+				'@typescript-eslint/no-floating-promises': ['error', { ignoreIIFE: true }],
 			},
 		},
 	],
