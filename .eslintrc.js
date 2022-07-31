@@ -55,6 +55,7 @@ module.exports = {
 		'unicorn/no-null': 'off',
 		'unicorn/prevent-abbreviations': 'off',
 		'unicorn/text-encoding-identifier-case': 'off',
+		'unicorn/filename-case': 'off',
 	},
 	settings: {
 		'import/parsers': {
