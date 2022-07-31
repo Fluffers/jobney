@@ -1,4 +1,4 @@
-import { envsafe, str, email } from 'envsafe';
+import { envsafe, str, email, url } from 'envsafe';
 
 export const env = envsafe({
 	NODE_ENV: str({
@@ -13,5 +13,8 @@ export const env = envsafe({
 	}),
 	SMTP_PASSWORD: str({
 		devDefault: 'example_password',
+	}),
+	DATABASE_URL: url({
+		devDefault: 'postgresql://postgres:postgres@localhost:5432/planotes',
 	}),
 });
